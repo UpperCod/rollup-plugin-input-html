@@ -1,6 +1,7 @@
 import path from "path";
 import getSources from "./getSources.js";
 import setSources from "./setSources.js";
+import { createFilter } from "rollup-pluginutils";
 
 let defaultOptions = {
 	include: ["**/*.html"],

@@ -3,6 +3,7 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var path = _interopDefault(require('path'));
+var rollupPluginutils = require('rollup-pluginutils');
 
 let fileLocal = /^\./;
 function getSources(input) {
@@ -46,7 +47,7 @@ let defaultOptions = {
 
 function inputHTML(options) {
 	options = { ...defaultOptions, ...options };
-	let filter = createFilter(options.include, options.exclude);
+	let filter = rollupPluginutils.createFilter(options.include, options.exclude);
 	let html = {};
 	return {
 		name: "rollup-plugin-input-html",
