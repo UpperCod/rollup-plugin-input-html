@@ -1,0 +1,33 @@
+{
+	"name": "@atomico/rollup-plugin-input-html",
+	"version": "0.1.0",
+	"description": "This plugins allows the export of relative mjs modules from .HTML files",
+	"main": "index.js",
+	"source": "src/index.js",
+	"scripts": {
+		"build": "rollup -c",
+		"prepare": "npm run build"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"author": "UpperCod",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/atomicojs/rollup-plugin-input-html"
+	},
+	"bugs": {
+		"url": "https://github.com/atomicojs/rollup-plugin-input-html/issues"
+	},
+	"homepage": "https://github.com/atomicojs/rollup-plugin-input-html#readme",
+	"license": "ISC",
+	"dependencies": {
+		"rollup-pluginutils": "^2.7.1"
+	},
+	"devDependencies": {
+		"rollup": "^1.12.4"
+	},
+	"peerDependencies": {
+		"rollup": "^1.12.4"
+	}
+}
