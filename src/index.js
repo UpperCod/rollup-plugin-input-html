@@ -2,6 +2,7 @@ import path from "path";
 import getSources from "./getSources.js";
 import setSources from "./setSources.js";
 import { createFilter } from "rollup-pluginutils";
+import fastGlob from "fast-glob";
 
 let defaultOptions = {
 	include: ["**/*.html"],
@@ -14,6 +15,22 @@ export default function inputHTML(options) {
 	let html = {};
 	return {
 		name: "rollup-plugin-input-html",
+		options(opts) {
+			let inputs = [].concat(opts.input);
+			let [local, globs] = inputs.reduce(
+				(group, input) => {
+					group[/\*/.test(input) ? 1 : 0].push(input);
+					return group;
+				},
+				[[], []]
+			);
+			if (globs.length) {
+				return {
+					...opts,
+					input: fastGlob.sync(globs).concat(local)
+				};
+			}
+		},
 		transform(code, id) {
 			if (!filter(id)) return;
 

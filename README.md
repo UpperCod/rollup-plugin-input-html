@@ -45,7 +45,7 @@ script, `src="./index.js"` has the group of `src="./app-1.js"` and `src="./app-2
 import inputHTML from "@atomico/rollup-plugin-input-html";
 
 export default {
-	input: "./index.html",
+	input: "index.html", //or can use fast-glob expressions, example: *.html, ui-*.html
 	output: {
 		dir: "./dist",
 		format: "esm",
@@ -60,3 +60,12 @@ export default {
 ### Multiple inputs
 
 You can also use multiple entries supported by rollup, this generate chuck, which group the code between 1 or more html files.
+
+## ⚠️ RULE
+
+do not import html nested in folders outside of root or inside root, since for now this plugins will resolve the path but the rollup import generates a non-deep bundle in directory. **logical is a bundle**.
+
+## This plugins uses the power of
+
+[fast-glob](https://github.com/mrmlnc/fast-glob): small utility for the recovery of files based on search expressions.
+[rollup-pluginutils]: allows to generate include and exclude plugins format.
