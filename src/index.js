@@ -6,7 +6,8 @@ import fastGlob from "fast-glob";
 
 let defaultOptions = {
 	include: ["**/*.html"],
-	exclude: []
+	exclude: [],
+	createHTML: true
 };
 
 export default function inputHTML(options) {
@@ -50,6 +51,7 @@ export default function inputHTML(options) {
 		},
 		generateBundle(opts, bundle) {
 			let dir = opts.dir || path.dirname(opts.file);
+			if (!options.createHTML) return;
 			for (let key in html) {
 				let data = html[key];
 				if (!data.create) {

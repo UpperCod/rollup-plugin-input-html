@@ -43,7 +43,8 @@ function setSources(body, inject) {
 
 let defaultOptions = {
 	include: ["**/*.html"],
-	exclude: []
+	exclude: [],
+	createHTML: true
 };
 
 function inputHTML(options) {
@@ -87,6 +88,7 @@ function inputHTML(options) {
 		},
 		generateBundle(opts, bundle) {
 			let dir = opts.dir || path.dirname(opts.file);
+			if (!options.createHTML) return;
 			for (let key in html) {
 				let data = html[key];
 				if (!data.create) {

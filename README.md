@@ -55,6 +55,16 @@ export default {
 };
 ```
 
+## default configuration
+
+```js
+let defaultOptions = {
+	include: ["**/*.html"],
+	exclude: [],
+	createHTML: true // allows the creation of the html file based on the origin
+};
+```
+
 #### This plugins must be included as the first element, in order to transfer the modules to the bundle.
 
 ### Multiple inputs
