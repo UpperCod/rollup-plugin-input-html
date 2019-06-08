@@ -1,6 +1,6 @@
 {
 	"name": "@atomico/rollup-plugin-input-html",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"description": "This plugins allows the export of relative mjs modules from .HTML files",
 	"main": "index.js",
 	"source": "src/index.js",
